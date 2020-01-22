@@ -1,0 +1,59 @@
+"""
+This program check for the number of digits in the
+value entered and do as follows:
+1 digit->add 7 and print units place digit
+2 digit->find 5 to the power of value and print units place
+3 digit->asks for another value and add both ,print units digit
+"""
+
+def get_number():
+    """
+    This function is for getting the number from user
+    """
+    res = int(input('Enter the number:'))
+    return res
+
+def do_1digit_oper(number):
+    '''
+    perform operation for 1 digit numbers
+    '''
+    res=number+7
+    print(res%10)
+
+def do_2digit_oper(number):
+    '''
+    perform operation for 2 digit numbers
+    '''
+    res=5**number
+    print(res%10)
+
+def do_3digit_oper(number):
+    '''
+    perform operation for 3 digit numbers
+    '''
+    sec_inpt=int(input('Enter the second input:'))
+    res=number+sec_inpt
+    print(res%10)
+
+def perform_check(value):
+    """
+    This function includes code for performing the check
+    """
+    if -1<value<10:
+        do_1digit_oper(value)
+    elif 9<value<100:
+        do_2digit_oper(value)
+    elif 99<value<1000:
+        do_3digit_oper(value)
+    else:
+        print('Input must be 1 or 2 or 3 digit positive value')
+
+def main():
+    """
+    main function
+    """
+    num=get_number()
+    perform_check(num)
+    
+#Main program starts from here
+main()
