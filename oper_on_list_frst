@@ -1,0 +1,55 @@
+'''
+Ask the user to enter a number till he enters 0. 
+Print the maximum and minimum values among all entered numbers. 
+Print the number of single, two and three digit numbers entered.
+'''
+
+def get_number():
+    '''
+    This function is to get the number
+    '''
+    num=int(input('Enter the number:'))
+    return num
+
+def count_digit(value,digit1,digit2,digit3):
+    '''
+    This function is to count the number of digits in a number
+    '''
+    if -10<value<10:
+        return digit1+1,digit2,digit3
+    elif -100<value<-9 or 9<value<100:
+        return digit1,digit2+1,digit3
+    elif -1000<value<-99 or 99<value<1000:
+        return digit1,digit2,digit3+1
+
+def main():
+    '''
+    Main function
+    '''
+    number=get_number()
+    comp_max=number
+    comp_min=number
+    count1=0
+    count2=0
+    count3=0
+    while number !=0:
+        if comp_max>number:
+            max_value=comp_max
+        else :
+            max_value=number
+        comp_max=max_value
+        if comp_min<number:
+            min_value=comp_min
+        else:
+            min_value=number
+        comp_min=min_value
+        count1,count2,count3=count_digit(number,count1,count2,count3)
+        number = get_number()
+    print('Count of single digit numbers=',count1)
+    print('Count of two digit numbers=',count2)
+    print('Count of three digit numbers=',count3)
+    print('Maximum number=',max_value)
+    print('Minimum number=',min_value)
+
+#Main program starts from here
+main()
