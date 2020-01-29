@@ -1,0 +1,25 @@
+"""
+Prompt the user to enter a long sentence
+        - What is the last character in the sentence ?
+        - What are the last 5 characters in the sentence ?
+        - Print the characters that are present in 2nd and 5th position of the sentence
+        - Print the character at the center of the string, along with the 2 adjoining characters. 
+        Ex : If the string entered is "Web Browser”
+        the character at its centre is "r" and so print "Bro"
+"""
+def get_sentence():
+    res=input('Enter sentence:')
+    return res
+
+def sentence_attributes(sent):
+    print('last chara=',sent[-1])
+    print('last 5 chara=',sent[-5:])
+    print('chara at 2nd and 5th position=',sent[1],sent[4])
+    if len(sent)%2!=0:
+        print('chara at the centre=',sent[((len(sent)//2)-1):(len(sent)//2)+2])
+    else:
+        print('chara at the centre=',sent[((len(sent)//2)-1):(len(sent)//2)+1])
+
+import string
+sentence=get_sentence()
+sentence_attributes(sentence)
