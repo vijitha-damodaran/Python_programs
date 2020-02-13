@@ -50,4 +50,5 @@ def main():
         count+=1
         
 #main program starts from here
-main()
+if __name__=="__main__":
+    main()
