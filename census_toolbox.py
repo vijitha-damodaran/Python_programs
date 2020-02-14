@@ -5,12 +5,18 @@ will get only 4 chances to guess. if the 4th guess is near to the pw by
 2 numbers then user will get a 5th chance.
 """
 import random
+from datetime import date
 
 def generate_random_num():
     """
     this fn generates the random num
     """
-    random_num=random.randint(1,25)
+    today = str(date.today())
+    date_today=int(today[-2:])
+    if date_today>25:
+        random_num=random.randint(1,date_today)
+    else:
+        random_num=random.randint(1,25)
     return random_num
 
 def get_inp_num():
