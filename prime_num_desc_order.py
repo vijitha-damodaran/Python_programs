@@ -18,15 +18,18 @@ def no_of_dgt(value):
 
 def prime_num(lst):
     """
-    returns prime numbers in alist
+    returns prime numbers in a list
     """
     prime=list()
     for num in lst:
-        for val in range(2,num//2+1):
-            if num%val==0:
-                break
-        else:
+        if num==2:
             prime.append(num)
+        elif num>2:
+            for val in range(2,num//2+1):
+                if num%val==0:
+                    break
+            else:
+                prime.append(num)
     return prime
             
 def desc_order(lst):
